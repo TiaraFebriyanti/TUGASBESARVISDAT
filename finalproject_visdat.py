@@ -19,7 +19,7 @@ Disusun oleh:
 *   Bagas Millen A ( 1301180184 )
 
 ---
-
+link deployment html: https://tiarafebriyanti.github.io/TUGASBESARVISDAT/covid19-bokeh.html
 
 
 ---
