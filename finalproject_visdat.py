@@ -16,7 +16,7 @@ Disusun oleh:
 
 *   Tiara Febriyanti ( 1301194309 ) 
 *   Kamalludin Hanif Farisi
-*   Bagas
+*   Bagas Millen A ( 1301180184 )
 
 ---
 
@@ -30,9 +30,9 @@ import numpy as np
 import pandas as pd
 import bokeh
 from bokeh.plotting import figure, show
-from bokeh.models import HoverTool, ColumnDataSource, CustomJS
+from bokeh.models import HoverTool, ColumnDataSource, CustomJS, DatetimeTickFormatter
 from bokeh.models.widgets.sliders import DateRangeSlider
-from bokeh.layouts import row, column, gridplot
+from bokeh.layouts import row, column, gridplot, layout
 from bokeh.models import Slider, Select
 from bokeh.io import output_file, output_notebook, curdoc
 from bokeh.models.widgets import Tabs, Panel
@@ -67,7 +67,7 @@ curdoc().theme = "dark_minimal"
 output_notebook()
 
 # Resource Data
-output_file('index.html',
+output_file('covid19-bokeh.html',
             title='data terkonfirmasi positif berdasarkan kurun waktu')
 dt_covid = ColumnDataSource(DataCovid)
 
@@ -188,12 +188,18 @@ if (this.value === "new_tested") {
 """)
 )
 
+# Mengubah format datetime sumbu x setiap figure 
+covidFig.xaxis.formatter = DatetimeTickFormatter(months="%b %Y", days="%d %b")
+covidFig2.xaxis.formatter = DatetimeTickFormatter(months="%b %Y", days="%d %b")
+covidFig3.xaxis.formatter = DatetimeTickFormatter(months="%b %Y", days="%d %b")
+covidFig4.xaxis.formatter = DatetimeTickFormatter(months="%b %Y", days="%d %b")
+
 # Membuat 4 layout atau layar terdiri dari masing-masing data covid 
-layout1 = row(date_slider_acc, covidFig)
-layout2 = row(date_slider_new, covidFig2)
-layout3 = row(date_slider_neg, covidFig3)
-layout4 = row(date_slider_tes, covidFig4)
-layout4 = row(select, covidFig4)
+layout1 = layout(date_slider_acc, covidFig)
+layout2 = layout(date_slider_new, covidFig2)
+layout3 = layout(date_slider_neg, covidFig3)
+layout4 = layout(date_slider_tes, covidFig4)
+layout4 = layout(select, covidFig4)
 
 # Membuat 4 Tabs untuk setiap data covid yang ditampilkan 
 panel_1 = Panel(child= layout1, title='acc_confirmed')
