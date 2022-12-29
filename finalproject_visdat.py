@@ -117,10 +117,10 @@ covidFig3.line('date', 'acc_negative',
 
 
 # Visualisasi Data untuk Interactive Select List atau Dropdown
-plot_1 = covidFig4.line(x='date', y='new_tested',  color='blue', legend_label='Data Covid 19', line_width=2, source=dt_covid )
-plot_2 = covidFig4.line(x='date', y='acc_tested',  color='orange', legend_label='Data Covid 19', line_width=2, source=dt_covid )
-plot_3 = covidFig4.line(x='date', y='being_checked',  color='green', legend_label='Data Covid 19', line_width=2, source=dt_covid )
-plot_4 = covidFig4.line(x='date', y='isolated',  color='red', legend_label='Data Covid 19', line_width=2, source=dt_covid )
+plot_1 = covidFig4.line(x='date', y='new_tested',  color='blue', legend_label='Data Covid 19 - new_tested', line_width=2, source=dt_covid )
+plot_2 = covidFig4.line(x='date', y='acc_tested',  color='orange', legend_label='Data Covid 19 - acc_tested', line_width=2, source=dt_covid )
+plot_3 = covidFig4.line(x='date', y='being_checked',  color='green', legend_label='Data Covid 19 - being_checked', line_width=2, source=dt_covid )
+plot_4 = covidFig4.line(x='date', y='isolated',  color='red', legend_label='Data Covid 19 - isolated', line_width=2, source=dt_covid )
 
 covidFig.legend.location = 'top_left'
 covidFig.legend.click_policy = 'hide'
@@ -198,8 +198,7 @@ covidFig4.xaxis.formatter = DatetimeTickFormatter(months="%b %Y", days="%d %b")
 layout1 = layout(date_slider_acc, covidFig)
 layout2 = layout(date_slider_new, covidFig2)
 layout3 = layout(date_slider_neg, covidFig3)
-layout4 = layout(date_slider_tes, covidFig4)
-layout4 = layout(select, covidFig4)
+layout4 = layout(select, date_slider_tes, covidFig4)
 
 # Membuat 4 Tabs untuk setiap data covid yang ditampilkan 
 panel_1 = Panel(child= layout1, title='acc_confirmed')
