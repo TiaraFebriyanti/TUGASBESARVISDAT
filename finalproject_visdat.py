@@ -15,7 +15,7 @@ Disusun oleh:
 
 
 *   Tiara Febriyanti ( 1301194309 ) 
-*   Kamalludin Hanif Farisi
+*   Kamalludin Hanif Farisi ( 1301190360 )
 *   Bagas Millen A ( 1301180184 )
 
 ---
